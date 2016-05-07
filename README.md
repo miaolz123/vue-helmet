@@ -28,7 +28,7 @@ $ npm install --save vue-helmet
 ## CommonJS
 
 ```js
-var VueHelmet = require('vue-helmet/dist/vue-helmet.common.js');
+var VueHelmet = require('vue-helmet');
 
 new Vue({
   components: {
@@ -40,7 +40,7 @@ new Vue({
 ## ES6
 
 ```js
-import VueHelmet from 'vue-helmet/dist/vue-helmet.common.js'
+import VueHelmet from 'vue-helmet'
 
 new Vue({
   components: {
