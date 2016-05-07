@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>vue-helmet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Something old." />
+</head>
+
+<body>
+  <vue-helmet :html-attributes="{'lang': 'zh-CN'}"
+              title="New Title Here"
+              :base="{'target': '_blank', 'href': 'http://a.d.c'}"
+              :meta="{'description': 'New Description Here.'}"
+              :links="[{'rel': 'canonical', 'href': 'http://a.b.c'},
+                       {'rel': 'apple-touch-icon', 'href': '/img/apple.png'}]"
+              ></vue-helmet>
+  <div>Hello World!</div>
+  <script type="text/javascript" src="/dist/vue.js"></script>
+  <script type="text/javascript" src="/dist/vue-helmet.js"></script>
+  <script>
+    Vue.use(VueHelmet);
+    var vm = new Vue({
+      el: "body"
+    });
+  </script>
+</body>
+
+</html>
