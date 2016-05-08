@@ -1,7 +1,8 @@
 # vue-helmet
 
 [![npm](https://img.shields.io/npm/v/vue-helmet.svg?style=flat&maxAge=2592000)](https://www.npmjs.com/package/vue-helmet)
-[![npm](https://img.shields.io/npm/l/vue-helmet.svg?style=flat&maxAge=2592000)](https://github.com/miaolz123/vue-helmet)
+[![npm](https://img.shields.io/npm/l/vue-helmet.svg?style=flat&maxAge=2592000)]((https://www.npmjs.com/package/vue-helmet)
+[![npm](https://img.shields.io/npm/dt/vue-helmet.svg?style=flat&maxAge=2592000)](https://www.npmjs.com/package/vue-helmet)
 
 Like [react-helmet](https://github.com/nfl/react-helmet), a HTML head manager for Vue, edit the page title easily!
 
@@ -54,6 +55,8 @@ new Vue({
 
 # Example
 
+[Example Demo](http://miaolz123.github.io/vue-helmet/)
+
 ```html
 <!DOCTYPE html>
 <html>
@@ -95,3 +98,7 @@ new Vue({
 | base | Object | `:base="{'target': '_blank', 'href': 'http://a.d.c'}"` |
 | meta | Object | `:meta="{'description': 'New Description Here.'}"` |
 | links | Array | `:links="[{'rel': 'canonical', 'href': 'http://a.b.c'}]"` |
+
+# License
+
+Copyright (c) 2016 [miaolz123](https://github.com/miaolz123) by [MIT](https://opensource.org/licenses/MIT)
