@@ -13,12 +13,11 @@
               title="New Title Here"
               :base="{'target': '_blank', 'href': 'http://a.d.c'}"
               :meta="{'description': 'New Description Here.'}"
-              :links="[{'rel': 'canonical', 'href': 'http://a.b.c'},
-                       {'rel': 'apple-touch-icon', 'href': '/img/apple.png'}]"
+              :links="[{'rel': 'canonical', 'href': 'http://a.b.c'}]"
               ></vue-helmet>
   <div>Hello World!</div>
-  <script type="text/javascript" src="/dist/vue.js"></script>
-  <script type="text/javascript" src="/dist/vue-helmet.js"></script>
+  <script type="text/javascript" src="dist/vue.js"></script>
+  <script type="text/javascript" src="dist/vue-helmet.js"></script>
   <script>
     Vue.use(VueHelmet);
     var vm = new Vue({

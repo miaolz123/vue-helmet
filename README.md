@@ -76,8 +76,8 @@ new Vue({
               :links="[{'rel': 'canonical', 'href': 'http://a.b.c'}]"
               ></vue-helmet>
   <div>Hello World!</div>
-  <script type="text/javascript" src="/dist/vue.js"></script>
-  <script type="text/javascript" src="/dist/vue-helmet.js"></script>
+  <script type="text/javascript" src="dist/vue.js"></script>
+  <script type="text/javascript" src="dist/vue-helmet.js"></script>
   <script>
     Vue.use(VueHelmet);
     var vm = new Vue({
