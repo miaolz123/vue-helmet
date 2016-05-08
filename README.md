@@ -1,7 +1,7 @@
 # vue-helmet
 
 [![npm](https://img.shields.io/npm/v/vue-helmet.svg?style=flat&maxAge=2592000)](https://www.npmjs.com/package/vue-helmet)
-[![npm](https://img.shields.io/npm/l/vue-helmet.svg?style=flat&maxAge=2592000)]((https://www.npmjs.com/package/vue-helmet)
+[![npm](https://img.shields.io/npm/l/vue-helmet.svg?style=flat&maxAge=2592000)](https://www.npmjs.com/package/vue-helmet)
 [![npm](https://img.shields.io/npm/dt/vue-helmet.svg?style=flat&maxAge=2592000)](https://www.npmjs.com/package/vue-helmet)
 
 Like [react-helmet](https://github.com/nfl/react-helmet), a HTML head manager for Vue, edit the page title easily!
