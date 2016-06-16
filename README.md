@@ -55,39 +55,8 @@ new Vue({
 
 # Example
 
-[Example Demo](http://miaolz123.github.io/vue-helmet/)
-
-```html
-<!DOCTYPE html>
-<html>
-
-<head>
-  <meta charset="utf-8">
-  <title>vue-helmet</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Something old." />
-</head>
-
-<body>
-  <vue-helmet :html-attributes="{'lang': 'zh-CN'}"
-              title="New Title Here"
-              :base="{'target': '_blank', 'href': 'http://a.d.c'}"
-              :meta="{'description': 'New Description Here.'}"
-              :links="[{'rel': 'canonical', 'href': 'http://a.b.c'}]"
-              ></vue-helmet>
-  <div>Hello World!</div>
-  <script type="text/javascript" src="dist/vue.js"></script>
-  <script type="text/javascript" src="dist/vue-helmet.js"></script>
-  <script>
-    Vue.use(VueHelmet);
-    var vm = new Vue({
-      el: "body"
-    });
-  </script>
-</body>
-
-</html>
-```
+- vue-router & vue-helmet Example : [Code](//github.com/miaolz123/vue-helmet/tree/gh-pages) | [Demo](//miaolz123.github.io/vue-helmet/)
+- ...
 
 # Props
 
@@ -98,6 +67,7 @@ new Vue({
 | base | Object | `:base="{'target': '_blank', 'href': 'http://a.d.c'}"` |
 | meta | Object | `:meta="{'description': 'New Description Here.'}"` |
 | links | Array | `:links="[{'rel': 'canonical', 'href': 'http://a.b.c'}]"` |
+| scripts | Array | `:scripts="[{'type': 'text/javascript', 'src': 'http://abc.xyz/filename.js'}]"` |
 
 # License
 
