@@ -1,6 +1,6 @@
 # vue-helmet
 
-This is a [Example Demo](http://miaolz123.github.io/vue-helmet/) of vue-helmet
+This is a [Example Demo](//miaolz123.github.io/vue-helmet/) of vue-helmet
 
 ```html
 <!DOCTYPE html>
