@@ -18,7 +18,7 @@ This is a [Example Demo](//miaolz123.github.io/vue-helmet/) of vue-helmet
 </head>
 
 <body>
-  <vue-helmet title='App'>
+  <vue-helmet title="App" />
   <h1>Hello App!</h1>
   <p>
     <a v-link="{ path: '/foo' }">Go to Foo</a>
@@ -35,10 +35,10 @@ This is a [Example Demo](//miaolz123.github.io/vue-helmet/) of vue-helmet
   <script>
     var App = Vue.extend({});
     var Foo = Vue.extend({
-      template: "<vue-helmet title='Foo'></vue-helmet><p>This is foo!</p>"
+      template: "<vue-helmet title='Foo' /><p>This is foo!</p>"
     });
     var Bar = Vue.extend({
-      template: "<vue-helmet title='Bar'></vue-helmet><p>This is bar!</p>"
+      template: "<vue-helmet title='Bar' /><p>This is bar!</p>"
     });
     var router = new VueRouter();
 

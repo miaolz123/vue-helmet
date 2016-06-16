@@ -13,7 +13,7 @@
 </head>
 
 <body>
-  <vue-helmet title='App'>
+  <vue-helmet title="App" />
   <h1>Hello App!</h1>
   <p>
     <a v-link="{ path: '/foo' }">Go to Foo</a>
@@ -24,16 +24,16 @@
   <p>
     Powered by <a href="//github.com/miaolz123/vue-helmet" target="_blank">VueHelmet</a>
   </p>
-  <script type="text/javascript" src="dist/vue.js"></script>
-  <script type="text/javascript" src="dist/vue-router.js"></script>
-  <script type="text/javascript" src="dist/vue-helmet.js"></script>
+  <script type="text/javascript" src="dist/vue.min.js"></script>
+  <script type="text/javascript" src="dist/vue-router.min.js"></script>
+  <script type="text/javascript" src="dist/vue-helmet.min.js"></script>
   <script>
     var App = Vue.extend({});
     var Foo = Vue.extend({
-      template: "<vue-helmet title='Foo'></vue-helmet><p>This is foo!</p>"
+      template: "<vue-helmet title='Foo' /><p>This is foo!</p>"
     });
     var Bar = Vue.extend({
-      template: "<vue-helmet title='Bar'></vue-helmet><p>This is bar!</p>"
+      template: "<vue-helmet title='Bar' /><p>This is bar!</p>"
     });
     var router = new VueRouter();
 
