@@ -1,4 +1,4 @@
-var webpack = require('webpack');
+var webpack = require("webpack");
 var version = require("./package.json").version;
 var banner =
   "/**\n" +
@@ -8,30 +8,32 @@ var banner =
   " */\n";
 
 module.exports = {
-  entry: './src/build.js',
+  entry: "./src/VueHelmet.js",
+  target: "node",
   output: {
-    path: './dist',
-    filename: 'vue-helmet.js',
-    library: 'VueHelmet',
-    libraryTarget: 'umd'
+    path: "./dist",
+    filename: "vue-helmet.common.js",
+    library: "VueHelmet",
+    libraryTarget: "umd"
   },
+  externals: /^[^.]/,
   plugins: [
     new webpack.BannerPlugin(banner, { raw: true })
   ],
   module: {
     loaders: [{
       test: /\.vue$/,
-      loader: 'vue'
+      loader: "vue"
     }, {
+        test: /\.js$/,
+        loader: "babel",
+        exclude: /node_modules/
+      }, {
         test: /\.css$/,
         loader: "style!css"
       }, {
-        test: /\.js$/,
-        loader: 'babel',
-        exclude: /node_modules/
-      }, {
         test: /\.json$/,
-        loader: 'json-loader'
+        loader: "json-loader"
       }]
   },
 }

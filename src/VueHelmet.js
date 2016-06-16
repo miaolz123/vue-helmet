@@ -97,6 +97,23 @@ const updateLink = (links) => {
   })
 }
 
+const updateScript = (scripts) => {
+  const headElement = document.head || document.querySelector('head')
+  const oldScripts = headElement.getElementsByTagName('script')
+  range(scripts, (i, script) => {
+    const newElement = document.createElement('script')
+    range(script, (k, v) => {
+      newElement.setAttribute(k, v)
+    })
+    range(oldScripts, (index) => {
+      if (oldScripts[index].isEqualNode(newElement)) {
+        headElement.removeChild(oldScripts[index])
+      }
+    })
+    headElement.appendChild(newElement)
+  })
+}
+
 export default {
   props: {
     htmlAttributes: {
@@ -114,6 +131,9 @@ export default {
     links: {
       type: Array,
     },
+    scripts: {
+      type: Array,
+    },
   },
   ready() {
     if (this.htmlAttributes) updateHtmlAttributes(this.htmlAttributes)
@@ -121,5 +141,6 @@ export default {
     if (this.base) updateBase(this.base)
     if (this.meta) updateMeta(this.meta)
     if (this.links) updateLink(this.links)
+    if (this.scripts) updateScript(this.scripts)
   },
 }

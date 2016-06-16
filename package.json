@@ -1,6 +1,6 @@
 {
   "name": "vue-helmet",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "A HTML head manager for Vue",
   "main": "dist/vue-helmet.common.js",
   "files": [
@@ -10,7 +10,9 @@
     "src"
   ],
   "scripts": {
-    "build": "webpack",
+    "start": "webpack --config webpack.config.js",
+    "min": "uglifyjs ./dist/vue-helmet.js -m -c --noerr -o ./dist/vue-helmet.min.js",
+    "build": "webpack --config webpack.common.js",
     "test": "echo true"
   },
   "repository": {
