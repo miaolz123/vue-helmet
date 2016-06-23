@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Something old." />
+  <title>Home</title>
   <style type="text/css">
     .v-link-active {
       color: red;
@@ -13,10 +14,9 @@
 </head>
 
 <body>
-  <vue-helmet title="App" />
   <h1>Hello App!</h1>
   <p>
-    <a v-link="{ path: '/' }">Go to App</a>
+    <a v-link="{ path: '/home' }">Go to Home</a>
     <a v-link="{ path: '/foo' }">Go to Foo</a>
     <a v-link="{ path: '/bar' }">Go to Bar</a>
   </p>
@@ -40,7 +40,7 @@
 
     Vue.use(VueHelmet);
     router.map({
-      "/": {
+      "/home": {
         component: App
       },
       "/foo": {
