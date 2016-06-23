@@ -135,6 +135,13 @@ export default {
       type: Array,
     },
   },
+  data: {
+    head: '',
+  },
+  init() {
+    const headElement = document.head || document.querySelector('head')
+    this.head = headElement.outerHTML
+  },
   ready() {
     if (this.htmlAttributes) updateHtmlAttributes(this.htmlAttributes)
     if (this.title) document.title = this.title
@@ -142,5 +149,9 @@ export default {
     if (this.meta) updateMeta(this.meta)
     if (this.links) updateLink(this.links)
     if (this.scripts) updateScript(this.scripts)
+  },
+  destroyed() {
+    const headElement = document.head || document.querySelector('head')
+    headElement.outerHTML = this.head
   },
 }

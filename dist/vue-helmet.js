@@ -1,5 +1,5 @@
 /**
- * vue-helmet v1.1.0
+ * vue-helmet v1.1.1
  * https://github.com/miaolz123/vue-helmet
  * MIT License
  */
@@ -232,6 +232,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	      type: Array
 	    }
 	  },
+	  data: {
+	    head: ''
+	  },
+	  init: function init() {
+	    var headElement = document.head || document.querySelector('head');
+	    this.head = headElement.outerHTML;
+	  },
 	  ready: function ready() {
 	    if (this.htmlAttributes) updateHtmlAttributes(this.htmlAttributes);
 	    if (this.title) document.title = this.title;
@@ -239,6 +246,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	    if (this.meta) updateMeta(this.meta);
 	    if (this.links) updateLink(this.links);
 	    if (this.scripts) updateScript(this.scripts);
+	  },
+	  destroyed: function destroyed() {
+	    var headElement = document.head || document.querySelector('head');
+	    headElement.outerHTML = this.head;
 	  }
 	};
 
