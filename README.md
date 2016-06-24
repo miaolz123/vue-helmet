@@ -10,6 +10,7 @@ This is a [Example Demo](//miaolz123.github.io/vue-helmet/) of vue-helmet
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Something old." />
+  <title>Home</title>
   <style type="text/css">
     .v-link-active {
       color: red;
@@ -18,9 +19,9 @@ This is a [Example Demo](//miaolz123.github.io/vue-helmet/) of vue-helmet
 </head>
 
 <body>
-  <vue-helmet title="App" />
   <h1>Hello App!</h1>
   <p>
+    <a v-link="{ path: '/home' }">Go to Home</a>
     <a v-link="{ path: '/foo' }">Go to Foo</a>
     <a v-link="{ path: '/bar' }">Go to Bar</a>
   </p>
@@ -29,9 +30,9 @@ This is a [Example Demo](//miaolz123.github.io/vue-helmet/) of vue-helmet
   <p>
     Powered by <a href="//github.com/miaolz123/vue-helmet" target="_blank">VueHelmet</a>
   </p>
-  <script type="text/javascript" src="dist/vue.js"></script>
-  <script type="text/javascript" src="dist/vue-router.js"></script>
-  <script type="text/javascript" src="dist/vue-helmet.js"></script>
+  <script type="text/javascript" src="dist/vue.min.js"></script>
+  <script type="text/javascript" src="dist/vue-router.min.js"></script>
+  <script type="text/javascript" src="dist/vue-helmet.min.js"></script>
   <script>
     var App = Vue.extend({});
     var Foo = Vue.extend({
@@ -44,6 +45,9 @@ This is a [Example Demo](//miaolz123.github.io/vue-helmet/) of vue-helmet
 
     Vue.use(VueHelmet);
     router.map({
+      "/home": {
+        component: App
+      },
       "/foo": {
         component: Foo
       },
