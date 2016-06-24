@@ -114,6 +114,17 @@ const updateScript = (scripts) => {
   })
 }
 
+const flush = () => {
+  const htmls = document.getElementsByTagName('html')
+  const html = htmls.length > 0 ? htmls[0] : document.createElement('html')
+  const bodies = html.getElementsByTagName('body')
+  range(bodies, (i, body) => {
+    if (i + 1 < bodies.length && body.childElementCount === 0) {
+      html.removeChild(body)
+    }
+  })
+}
+
 export default {
   props: {
     htmlAttributes: {
@@ -167,9 +178,11 @@ export default {
     if (this.meta) updateMeta(this.meta)
     if (this.links) updateLink(this.links)
     if (this.scripts) updateScript(this.scripts)
+    flush()
   },
   destroyed() {
     const headElement = document.head || document.querySelector('head')
     headElement.outerHTML = this.head
+    flush()
   },
 }
