@@ -144,7 +144,25 @@ export default {
   },
   ready() {
     if (this.htmlAttributes) updateHtmlAttributes(this.htmlAttributes)
-    if (this.title) document.title = this.title
+    if (this.title) {
+      document.title = this.title
+      const ua = navigator.userAgent.toLowerCase()
+      if (ua.indexOf('iphone') > -1 && ua.indexOf('micromessenger') > -1) {
+        setTimeout(() => {
+          document.title = this.title
+          const iframe = document.createElement('iframe')
+          iframe.style.visibility = 'hidden'
+          iframe.style.width = '1px'
+          iframe.style.height = '1px'
+          iframe.onload = () => {
+            setTimeout(() => {
+              document.body.removeChild(iframe)
+            }, 0)
+          }
+          document.body.appendChild(iframe)
+        }, 0)
+      }
+    }
     if (this.base) updateBase(this.base)
     if (this.meta) updateMeta(this.meta)
     if (this.links) updateLink(this.links)

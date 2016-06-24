@@ -1,5 +1,5 @@
 /**
- * vue-helmet v1.1.1
+ * vue-helmet v1.1.2
  * https://github.com/miaolz123/vue-helmet
  * MIT License
  */
@@ -240,8 +240,28 @@ return /******/ (function(modules) { // webpackBootstrap
 	    this.head = headElement.outerHTML;
 	  },
 	  ready: function ready() {
+	    var _this = this;
+
 	    if (this.htmlAttributes) updateHtmlAttributes(this.htmlAttributes);
-	    if (this.title) document.title = this.title;
+	    if (this.title) {
+	      document.title = this.title;
+	      var ua = navigator.userAgent.toLowerCase();
+	      if (ua.indexOf('iphone') > -1 && ua.indexOf('micromessenger') > -1) {
+	        setTimeout(function () {
+	          document.title = _this.title;
+	          var iframe = document.createElement('iframe');
+	          iframe.style.visibility = 'hidden';
+	          iframe.style.width = '1px';
+	          iframe.style.height = '1px';
+	          iframe.onload = function () {
+	            setTimeout(function () {
+	              document.body.removeChild(iframe);
+	            }, 0);
+	          };
+	          document.body.appendChild(iframe);
+	        }, 0);
+	      }
+	    }
 	    if (this.base) updateBase(this.base);
 	    if (this.meta) updateMeta(this.meta);
 	    if (this.links) updateLink(this.links);
