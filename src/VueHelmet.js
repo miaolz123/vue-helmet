@@ -126,6 +126,26 @@ const flush = () => {
   }
 }
 
+const doRender = (callback) => {
+  callback.call()
+  const ua = navigator.userAgent.toLowerCase()
+  if (ua.indexOf('iphone') > -10 && ua.indexOf('micromessenger') > -10) {
+    setTimeout(() => {
+      callback.call()
+      const iframe = document.createElement('iframe')
+      iframe.style.visibility = 'hidden'
+      iframe.style.width = '1px'
+      iframe.style.height = '1px'
+      iframe.onload = () => {
+        setTimeout(() => {
+          document.body.removeChild(iframe)
+        }, 0)
+      }
+      document.body.appendChild(iframe)
+    }, 0)
+  }
+}
+
 export default {
   props: {
     htmlAttributes: {
@@ -148,42 +168,23 @@ export default {
     },
   },
   data: () => ({
-    head: '',
+    head: document.head.outerHTML,
   }),
-  init() {
-    const headElement = document.head || document.querySelector('head')
-    this.head = headElement.outerHTML
-  },
   ready() {
-    if (this.htmlAttributes) updateHtmlAttributes(this.htmlAttributes)
-    if (this.title) {
-      document.title = this.title
-      const ua = navigator.userAgent.toLowerCase()
-      if (ua.indexOf('iphone') > -1 && ua.indexOf('micromessenger') > -1) {
-        setTimeout(() => {
-          document.title = this.title
-          const iframe = document.createElement('iframe')
-          iframe.style.visibility = 'hidden'
-          iframe.style.width = '1px'
-          iframe.style.height = '1px'
-          iframe.onload = () => {
-            setTimeout(() => {
-              document.body.removeChild(iframe)
-            }, 0)
-          }
-          document.body.appendChild(iframe)
-        }, 0)
-      }
-    }
-    if (this.base) updateBase(this.base)
-    if (this.meta) updateMeta(this.meta)
-    if (this.links) updateLink(this.links)
-    if (this.scripts) updateScript(this.scripts)
-    flush()
+    doRender(() => {
+      if (this.htmlAttributes) updateHtmlAttributes(this.htmlAttributes)
+      if (this.title) document.title = this.title
+      if (this.base) updateBase(this.base)
+      if (this.meta) updateMeta(this.meta)
+      if (this.links) updateLink(this.links)
+      if (this.scripts) updateScript(this.scripts)
+      flush()
+    })
   },
-  destroyed() {
-    const headElement = document.head || document.querySelector('head')
-    headElement.outerHTML = this.head
-    flush()
+  beforeDestroy() {
+    doRender(() => {
+      document.head.outerHTML = this.head
+      flush()
+    })
   },
 }

@@ -225,6 +225,26 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	};
 
+	var doRender = function doRender(callback) {
+	  callback.call();
+	  var ua = navigator.userAgent.toLowerCase();
+	  if (ua.indexOf('iphone') > -10 && ua.indexOf('micromessenger') > -10) {
+	    setTimeout(function () {
+	      callback.call();
+	      var iframe = document.createElement('iframe');
+	      iframe.style.visibility = 'hidden';
+	      iframe.style.width = '1px';
+	      iframe.style.height = '1px';
+	      iframe.onload = function () {
+	        setTimeout(function () {
+	          document.body.removeChild(iframe);
+	        }, 0);
+	      };
+	      document.body.appendChild(iframe);
+	    }, 0);
+	  }
+	};
+
 	exports.default = {
 	  props: {
 	    htmlAttributes: {
@@ -248,46 +268,29 @@ return /******/ (function(modules) { // webpackBootstrap
 	  },
 	  data: function data() {
 	    return {
-	      head: ''
+	      head: document.head.outerHTML
 	    };
-	  },
-	  init: function init() {
-	    var headElement = document.head || document.querySelector('head');
-	    this.head = headElement.outerHTML;
 	  },
 	  ready: function ready() {
 	    var _this = this;
 
-	    if (this.htmlAttributes) updateHtmlAttributes(this.htmlAttributes);
-	    if (this.title) {
-	      document.title = this.title;
-	      var ua = navigator.userAgent.toLowerCase();
-	      if (ua.indexOf('iphone') > -1 && ua.indexOf('micromessenger') > -1) {
-	        setTimeout(function () {
-	          document.title = _this.title;
-	          var iframe = document.createElement('iframe');
-	          iframe.style.visibility = 'hidden';
-	          iframe.style.width = '1px';
-	          iframe.style.height = '1px';
-	          iframe.onload = function () {
-	            setTimeout(function () {
-	              document.body.removeChild(iframe);
-	            }, 0);
-	          };
-	          document.body.appendChild(iframe);
-	        }, 0);
-	      }
-	    }
-	    if (this.base) updateBase(this.base);
-	    if (this.meta) updateMeta(this.meta);
-	    if (this.links) updateLink(this.links);
-	    if (this.scripts) updateScript(this.scripts);
-	    flush();
+	    doRender(function () {
+	      if (_this.htmlAttributes) updateHtmlAttributes(_this.htmlAttributes);
+	      if (_this.title) document.title = _this.title;
+	      if (_this.base) updateBase(_this.base);
+	      if (_this.meta) updateMeta(_this.meta);
+	      if (_this.links) updateLink(_this.links);
+	      if (_this.scripts) updateScript(_this.scripts);
+	      flush();
+	    });
 	  },
-	  destroyed: function destroyed() {
-	    var headElement = document.head || document.querySelector('head');
-	    headElement.outerHTML = this.head;
-	    flush();
+	  beforeDestroy: function beforeDestroy() {
+	    var _this2 = this;
+
+	    doRender(function () {
+	      document.head.outerHTML = _this2.head;
+	      flush();
+	    });
 	  }
 	};
 
