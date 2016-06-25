@@ -207,7 +207,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var doRender = function doRender(callback) {
 	  callback.call();
 	  var ua = navigator.userAgent.toLowerCase();
-	  if (ua.indexOf('iphone') > -10 && ua.indexOf('micromessenger') > -10) {
+	  if (ua.indexOf('iphone') > -1 && ua.indexOf('micromessenger') > -1) {
 	    setTimeout(function () {
 	      callback.call();
 	      var iframe = document.createElement('iframe');

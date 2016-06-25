@@ -129,7 +129,7 @@ const flush = () => {
 const doRender = (callback) => {
   callback.call()
   const ua = navigator.userAgent.toLowerCase()
-  if (ua.indexOf('iphone') > -10 && ua.indexOf('micromessenger') > -10) {
+  if (ua.indexOf('iphone') > -1 && ua.indexOf('micromessenger') > -1) {
     setTimeout(() => {
       callback.call()
       const iframe = document.createElement('iframe')
