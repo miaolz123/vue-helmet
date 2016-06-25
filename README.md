@@ -69,6 +69,11 @@ new Vue({
 | links | Array | `:links="[{'rel': 'canonical', 'href': 'http://a.b.c'}]"` |
 | scripts | Array | `:scripts="[{'type': 'text/javascript', 'src': 'http://abc.xyz/filename.js'}]"` |
 
+# Contributors
+
+- [miaolz123](//github.com/miaolz123)
+- [MouCai](//github.com/MouCai)
+
 # License
 
-Copyright (c) 2016 [miaolz123](https://github.com/miaolz123) by [MIT](https://opensource.org/licenses/MIT)
+Copyright (c) 2016 [miaolz123](//github.com/miaolz123) by [MIT](//opensource.org/licenses/MIT)
