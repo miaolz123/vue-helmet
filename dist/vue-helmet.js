@@ -1,5 +1,5 @@
 /**
- * vue-helmet v1.1.4
+ * vue-helmet v1.1.5
  * https://github.com/miaolz123/vue-helmet
  * MIT License
  */
@@ -235,6 +235,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      iframe.style.visibility = 'hidden';
 	      iframe.style.width = '1px';
 	      iframe.style.height = '1px';
+	      iframe.src = '/favicon.ico';
 	      iframe.onload = function () {
 	        setTimeout(function () {
 	          document.body.removeChild(iframe);

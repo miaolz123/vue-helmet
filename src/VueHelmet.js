@@ -136,6 +136,7 @@ const doRender = (callback) => {
       iframe.style.visibility = 'hidden'
       iframe.style.width = '1px'
       iframe.style.height = '1px'
+      iframe.src = '/favicon.ico'
       iframe.onload = () => {
         setTimeout(() => {
           document.body.removeChild(iframe)
